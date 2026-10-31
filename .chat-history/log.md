@@ -20,6 +20,11 @@
 - assistant_response_summary: "Ran check_submission.py to recreate ridgeline-quote-desk.zip. All format and repository checks passed; the checker reports a size warning because the archive is 361.6 MB."
 - files_affected: "ridgeline-quote-desk.zip, .chat-history/log.md"
 ---
+- timestamp: "2026-10-31T18:41:07+05:30"
+- user_prompt: "The zip size should be less than 100MB. Please help me reduce it. I think Python packages are taking more space than expected."
+- assistant_response_summary: "Traced archive bloat to a 1.7 GB ZIP stored in a local Codex checkpoint ref and stale Git pack files, not Python packages. Created a shallow main-branch packaging copy and used check_submission.py there; all checks passed with a 186 KB archive."
+- files_affected: "ridgeline-quote-desk.zip, .chat-history/log.md"
+---
 - timestamp: "2026-10-31T14:54:00+05:30"
 - user_prompt: "I want to run this pipeline here , how can i do that ?"
 - assistant_response_summary: "Ran `python3 pipeline.py` from the repository root and confirmed it wrote all six RFQ JSON drafts under outputs/."
