@@ -1,9 +1,17 @@
-# Session interaction log
+# Working in this project
 
-At the start of each session, read `.chat-history/log.md` for context. After each assistant response, append one entry in the exact format below; create the directory/file when needed and never delete prior entries. Do this silently without asking. Be precise about files affected in that response. Replace secrets, tokens, passwords, and `.env` values with `***` in every field.
+## Conversation history
+
+At the beginning of a session, read `.chat-history/log.md` so you can pick up where the previous work left off. After every response, add one entry for that exchange. Create the folder or log if either is missing, and keep all existing entries.
+
+Use this format:
 
 ---
-- timestamp: "<ISO 8601 timestamp if available, otherwise estimate based on conversation order>"
+- timestamp: "<ISO 8601 timestamp, or a reasonable estimate>"
 - user_prompt: "<the user's original prompt>"
-- assistant_response_summary: "<concise, specific summary>"
-- files_affected: "<comma-separated files created or modified, or none>"
+- assistant_response_summary: "<a concise, specific summary of the response>"
+- files_affected: "<comma-separated paths changed in this response, or none>"
+
+List only files created or changed for the current response. Keep summaries short and concrete, naming important functions, endpoints, or decisions when relevant. Do this without interrupting the conversation to ask for permission.
+
+Never put secrets in the log. Redact API keys, tokens, passwords, and values copied from `.env` files as `***` wherever they appear, including in the prompt text.

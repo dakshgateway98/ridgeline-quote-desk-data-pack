@@ -1,34 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title description">
-  <title id="title">RFQ pipeline workflow</title>
-  <desc id="description">Customer RFQ files pass through format readers, extraction, customer lookup, matching, validation and output. Evaluation compares outputs with answer keys and uncertain lines go to human review.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1260" viewBox="0 0 1600 1260" role="img" aria-labelledby="title description">
+  <title id="title">How product matching, confidence, flags, and LLM fallback work</title>
+  <desc id="description">A detailed RFQ pipeline diagram showing deterministic match order, confidence scores and fuzzy score formula, optional LLM fallback, output flags, OCR confidence adjustment, and review decision.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,5 L0,10 z" fill="#526277"/></marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,5 L0,10 z" fill="#237a57"/></marker>
     <style>
-      .box { fill:#f3f7fc; stroke:#4272a5; stroke-width:2; rx:14; }
-      .side { fill:#fff8e8; stroke:#bd8425; stroke-width:2; rx:14; }
-      .main { fill:#eaf4ff; stroke:#3169a3; stroke-width:2.5; rx:14; }
-      .title { font:700 24px system-ui,sans-serif; fill:#19324d; }
-      .label { font:600 17px system-ui,sans-serif; fill:#24364b; text-anchor:middle; }
-      .small { font:14px system-ui,sans-serif; fill:#526277; text-anchor:middle; }
-      .edge { stroke:#526277; stroke-width:2.5; fill:none; marker-end:url(#arrow); }
-      .edge-label { font:13px system-ui,sans-serif; fill:#526277; }
+      .bg{fill:#f7f9fc}.panel{fill:#fff;stroke:#d1dbe7;stroke-width:2;rx:18}.blue{fill:#edf5ff;stroke:#4b7fb3;stroke-width:2;rx:14}.green{fill:#eef9f3;stroke:#4b9a75;stroke-width:2;rx:14}.amber{fill:#fff7e8;stroke:#d39a34;stroke-width:2;rx:14}.red{fill:#fff0ef;stroke:#c7685d;stroke-width:2;rx:14}.title{font:700 30px system-ui,sans-serif;fill:#19324d;text-anchor:middle}.h{font:700 21px system-ui,sans-serif;fill:#19324d}.label{font:700 17px system-ui,sans-serif;fill:#24364b;text-anchor:middle}.body{font:15px system-ui,sans-serif;fill:#35465a}.small{font:13px system-ui,sans-serif;fill:#526277}.center{text-anchor:middle}.edge{stroke:#526277;stroke-width:2.5;fill:none;marker-end:url(#arrow)}.edgeGreen{stroke:#237a57;stroke-width:2.5;fill:none;marker-end:url(#arrowGreen)}.dash{stroke-dasharray:8 6}.mono{font:15px ui-monospace,Menlo,monospace;fill:#26384d}
     </style>
   </defs>
-  <rect width="1200" height="760" fill="#ffffff"/>
-  <text x="600" y="48" text-anchor="middle" class="title">Ridgeline RFQ pipeline</text>
-  <rect x="430" y="82" width="340" height="68" class="box"/><text x="600" y="111" class="label">1. RFQ files</text><text x="600" y="134" class="small">Email · PDF · Excel · Word · image · text</text>
-  <path d="M600 150 V185" class="edge"/>
-  <rect x="430" y="190" width="340" height="68" class="main"/><text x="600" y="219" class="label">2. Format readers</text><text x="600" y="242" class="small">Text extraction first; OCR fallback where available</text>
-  <path d="M600 258 V293" class="edge"/>
-  <rect x="430" y="298" width="340" height="68" class="main"/><text x="600" y="327" class="label">3. Extract line items</text><text x="600" y="350" class="small">Descriptions · quantities · units · notes · attachments</text>
-  <path d="M600 366 V401" class="edge"/>
-  <rect x="430" y="406" width="340" height="68" class="box"/><text x="600" y="435" class="label">4. Identify customer</text><text x="600" y="458" class="small">Contact evidence, identifier, then name</text>
-  <path d="M600 474 V509" class="edge"/>
-  <rect x="430" y="514" width="340" height="68" class="main"/><text x="600" y="543" class="label">5. Match products</text><text x="600" y="566" class="small">Exact part → cross-reference → description</text>
-  <path d="M600 582 V617" class="edge"/>
-  <rect x="430" y="622" width="340" height="68" class="main"/><text x="600" y="651" class="label">6. Validate and save draft</text><text x="600" y="674" class="small">JSON output with confidence, flags, and review status</text>
-  <path d="M770 656 H865" class="edge"/>
-  <rect x="870" y="622" width="270" height="68" class="side"/><text x="1005" y="651" class="label">Human review</text><text x="1005" y="674" class="small">Unclear or unreadable items</text>
-  <path d="M770 218 H925 V178" class="edge"/>
-  <rect x="850" y="82" width="300" height="84" class="side"/><text x="1000" y="113" class="label">Evaluation</text><text x="1000" y="137" class="small">Compare saved drafts to answer keys</text><text x="1000" y="156" class="small">Measure accuracy, precision, and recall</text>
+  <rect width="1600" height="1260" class="bg"/>
+  <text x="800" y="50" class="title">How the RFQ pipeline chooses a part — and decides what needs review</text>
+  <text x="800" y="78" class="small center">Confidence is a matching evidence score, not a probability that the answer is correct.</text>
+
+  <rect x="35" y="105" width="470" height="1090" class="panel"/>
+  <text x="65" y="145" class="h">1 · Match in this order</text>
+  <rect x="80" y="180" width="380" height="74" class="blue"/><text x="270" y="211" class="label">Exact Ridgeline part number</text><text x="270" y="235" class="small center">If one exact catalogue part is present</text>
+  <path d="M270 254 V285" class="edgeGreen"/>
+  <rect x="80" y="291" width="380" height="72" class="green"/><text x="270" y="322" class="label">Match found · score 1.00</text><text x="270" y="345" class="small center">match_method: ridgeline_part_number</text>
+  <text x="474" y="278" class="small">no exact part</text><path d="M460 217 H485 V405 H460" class="edge"/>
+  <rect x="80" y="405" width="380" height="74" class="blue"/><text x="270" y="436" class="label">Exact cross-reference</text><text x="270" y="460" class="small center">Find the supplier part in cross_reference.csv</text>
+  <path d="M270 479 V510" class="edgeGreen"/>
+  <rect x="80" y="516" width="380" height="72" class="green"/><text x="270" y="547" class="label">Match found · score 0.98</text><text x="270" y="570" class="small center">match_method: cross_reference</text>
+  <text x="474" y="503" class="small">no x-ref</text><path d="M460 442 H485 V630 H460" class="edge"/>
+  <rect x="80" y="630" width="380" height="74" class="blue"/><text x="270" y="661" class="label">Description matching</text><text x="270" y="685" class="small center">Exact normalized description, then fuzzy score</text>
+  <path d="M270 704 V735" class="edgeGreen"/>
+  <rect x="80" y="741" width="380" height="72" class="green"/><text x="270" y="772" class="label">Strong, unique match · ≥ 0.80</text><text x="270" y="795" class="small center">match_method: description</text>
+  <path d="M270 813 V839" class="edge"/>
+  <rect x="80" y="846" width="380" height="89" class="amber"/><text x="270" y="877" class="label">No strong match or low score</text><text x="270" y="901" class="small center">LLM may run only if enabled and no ambiguity</text><text x="270" y="920" class="small center">or unsafe part-number evidence exists</text>
+  <path d="M460 667 H485 V889 H460" class="edge"/>
+  <rect x="80" y="970" width="380" height="91" class="blue"/><text x="270" y="1001" class="label">LLM fallback · optional</text><text x="270" y="1025" class="small center">Ranks a short list of active catalogue candidates</text><text x="270" y="1045" class="small center">returns part + score + reason</text>
+  <path d="M270 935 V963" class="edge"/>
+  <rect x="80" y="1090" width="380" height="70" class="amber"/><text x="270" y="1120" class="label">Still uncertain? Leave unmatched</text><text x="270" y="1144" class="small center">No part is invented; flag for a person</text><path d="M270 1061 V1083" class="edge"/>
+
+  <rect x="530" y="105" width="535" height="1090" class="panel"/>
+  <text x="560" y="145" class="h">2 · How confidence is calculated</text>
+  <rect x="570" y="180" width="455" height="155" class="blue"/>
+  <text x="595" y="213" class="label" text-anchor="start">Exact evidence scores</text>
+  <text x="600" y="245" class="body">Exact catalogue part number</text><text x="995" y="245" class="body" text-anchor="end">1.00</text>
+  <text x="600" y="274" class="body">Exact cross-reference</text><text x="995" y="274" class="body" text-anchor="end">0.98</text>
+  <text x="600" y="303" class="body">Exact normalized description</text><text x="995" y="303" class="body" text-anchor="end">0.96</text>
+  <rect x="570" y="360" width="455" height="245" class="blue"/>
+  <text x="595" y="393" class="label" text-anchor="start">Fuzzy description score</text>
+  <text x="600" y="428" class="body">1. Compare meaningful words in the request</text>
+  <text x="622" y="454" class="small">Coverage = shared query words / query words</text><text x="622" y="478" class="small">Precision = shared query words / catalogue words</text>
+  <text x="600" y="515" class="body">2. Combine word overlap</text><text x="622" y="541" class="mono">token = 0.65 × coverage + 0.35 × precision</text>
+  <text x="600" y="572" class="body">3. Add text sequence similarity</text><text x="622" y="594" class="mono">score = 0.90 × token + 0.10 × sequence</text>
+  <rect x="570" y="630" width="455" height="132" class="amber"/>
+  <text x="595" y="663" class="label" text-anchor="start">Selection / ambiguity rule</text>
+  <text x="600" y="696" class="body">Description match needs score ≥ 0.80.</text><text x="600" y="722" class="body">Close top candidates (gap &lt; 0.06) are ambiguous.</text><text x="600" y="746" class="small">Ambiguous results go to human review.</text>
+  <rect x="570" y="787" width="455" height="147" class="green"/>
+  <text x="595" y="820" class="label" text-anchor="start">LLM score</text>
+  <text x="600" y="852" class="body">Model returns a 0–1 score for a listed part.</text><text x="600" y="880" class="body">Must meet configured minimum (0.75 default).</text><text x="600" y="908" class="body">Uncalibrated; every LLM match needs review.</text>
+  <rect x="570" y="960" width="455" height="193" class="amber"/>
+  <text x="595" y="993" class="label" text-anchor="start">OCR adjustment</text>
+  <text x="600" y="1027" class="body">When OCR confidence exists:</text><text x="600" y="1061" class="mono">final confidence = min(match score, OCR score)</text>
+  <text x="600" y="1094" class="body">Low OCR quality also adds low_ocr_confidence.</text><text x="600" y="1125" class="small">Without OCR, final confidence is the match score.</text>
+
+  <rect x="1090" y="105" width="475" height="1090" class="panel"/>
+  <text x="1120" y="145" class="h">3 · Labels and review decision</text>
+  <rect x="1130" y="180" width="395" height="122" class="blue"/>
+  <text x="1327" y="212" class="label">Output labels</text><text x="1327" y="244" class="small center">match_method · confidence · flags</text><text x="1327" y="269" class="small center">needs_review · ridgeline_part_number</text>
+  <rect x="1130" y="327" width="395" height="265" class="amber"/>
+  <text x="1155" y="361" class="label" text-anchor="start">Flags say what needs attention</text>
+  <text x="1160" y="397" class="body">quantity_unparsed — quantity not understood</text><text x="1160" y="431" class="body">unmatched — no part selected</text><text x="1160" y="465" class="body">ambiguous_* — multiple plausible choices</text><text x="1160" y="499" class="body">low_ocr_confidence — weak OCR evidence</text><text x="1160" y="533" class="body">unit_mismatch — request/catalogue units differ</text><text x="1160" y="567" class="small">Reader, customer, and discontinued-product issues</text><text x="1160" y="585" class="small">can add flags too.</text>
+  <rect x="1130" y="620" width="395" height="155" class="red"/>
+  <text x="1155" y="654" class="label" text-anchor="start">LLM-specific labels</text><text x="1160" y="690" class="body">llm_match_needs_review — model selected part</text><text x="1160" y="721" class="body">llm_no_confident_match — score below minimum</text><text x="1160" y="752" class="body">llm_fallback_failed — provider/response error</text>
+  <rect x="1130" y="806" width="395" height="161" class="blue"/>
+  <text x="1155" y="840" class="label" text-anchor="start">Review rule</text><text x="1160" y="878" class="mono">needs_review = has any flag</text><text x="1160" y="907" class="mono">OR confidence &lt; 0.80</text><text x="1160" y="941" class="small">A high score does not cancel a warning flag.</text>
+  <rect x="1130" y="1006" width="395" height="94" class="green"/><text x="1327" y="1041" class="label">needs_review: false</text><text x="1327" y="1071" class="small center">No flags and score meets threshold</text>
+  <rect x="1130" y="1116" width="395" height="62" class="amber"/><text x="1327" y="1144" class="label">needs_review: true → specialist</text><text x="1327" y="1167" class="small center">Every LLM-selected part goes here</text>
+  <path d="M1327 967 V998" class="edge"/>
+  <path d="M460 1015 H520" class="edge dash"/><path d="M1025 857 H1080" class="edgeGreen"/><text x="1052" y="842" class="small center">score + label</text>
+  <text x="800" y="1225" class="small center">LLM is an opt-in backstop: deterministic rules first, candidate list only, human approval still required.</text>
 </svg>
