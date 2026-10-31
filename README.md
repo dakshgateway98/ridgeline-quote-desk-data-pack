@@ -4,9 +4,8 @@ This project turns customer requests for quotes (RFQs) into draft line items. A 
 
 ## Repository
 
-Public GitHub link: https://github.com/REPLACE_WITH_YOUR_PUBLIC_REPO
+Public GitHub link: https://github.com/dakshgateway98/ridgeline-quote-desk-data-pack
 
-Replace this example link with the URL of your public repository before submitting.
 
 ## How to Run
 
