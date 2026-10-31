@@ -1,0 +1,110 @@
+{
+  "rfq_id": "rfq_05_forwarded_chain",
+  "customer_id": null,
+  "customer_name": null,
+  "lines": [
+    {
+      "line": 1,
+      "as_written": "Forwarded message ----------",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.04,
+      "needs_review": true,
+      "flags": [
+        "customer_unresolved",
+        "low_match_confidence",
+        "quantity_unparsed",
+        "quoted_email_context_needs_review",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.04 is below 0.80."
+    },
+    {
+      "line": 2,
+      "as_written": "Original message ----------",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.03,
+      "needs_review": true,
+      "flags": [
+        "customer_unresolved",
+        "low_match_confidence",
+        "quantity_unparsed",
+        "quoted_email_context_needs_review",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.03 is below 0.80."
+    },
+    {
+      "line": 3,
+      "as_written": "3 HP TEFC motor, 1800 rpm, 3 phase - qty 2",
+      "quantity": 2,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.79,
+      "needs_review": true,
+      "flags": [
+        "customer_unresolved",
+        "low_match_confidence",
+        "quoted_email_context_needs_review",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.79 is below 0.80."
+    },
+    {
+      "line": 4,
+      "as_written": "2\" flange gaskets 150# - qty 20",
+      "quantity": 20,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.75,
+      "needs_review": true,
+      "flags": [
+        "customer_unresolved",
+        "low_match_confidence",
+        "quoted_email_context_needs_review",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.75 is below 0.80."
+    },
+    {
+      "line": 5,
+      "as_written": "food grade grease cartridges - 3 cases",
+      "quantity": 3,
+      "unit": "CS",
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.78,
+      "needs_review": true,
+      "flags": [
+        "customer_unresolved",
+        "low_match_confidence",
+        "quoted_email_context_needs_review",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.78 is below 0.80."
+    }
+  ],
+  "non_item_rows": [
+    "From: Nina Patel <npatel@lakeshorefoods.example>",
+    "To: quotes@ridgelinesupply.example",
+    "Date: Wed, 7 Oct 2026 10:15:33 -0400",
+    "Subject: FW: RE: motor + gaskets quote",
+    "Please quote per Rick's changes below. Thanks - Nina",
+    "From: Rick Dawson <rdawson@lakeshorefoods.example>",
+    "Date: Wed, 7 Oct 2026 09:58:02 -0400",
+    "Subject: RE: motor + gaskets quote",
+    "Nina - make the motor 5HP not 3, the 3 won't handle the new mixer. And bump the gaskets to 40, we're doing both lines.",
+    "Grease is fine as is.",
+    "Date: Tue, 6 Oct 2026 16:40:11 -0400",
+    "Subject: motor + gaskets quote",
+    "Rick, before I send to Ridgeline, does this look right?",
+    "Customer could not be identified uniquely; manual customer review is required."
+  ]
+}

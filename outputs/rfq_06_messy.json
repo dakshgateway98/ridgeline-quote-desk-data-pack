@@ -1,0 +1,68 @@
+{
+  "rfq_id": "rfq_06_messy",
+  "customer_id": null,
+  "customer_name": null,
+  "lines": [
+    {
+      "line": 1,
+      "as_written": "6205 bearings sealed qty 24",
+      "quantity": 24,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.74,
+      "needs_review": true,
+      "flags": [
+        "customer_unresolved",
+        "low_match_confidence",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.74 is below 0.80."
+    },
+    {
+      "line": 2,
+      "as_written": "forklift tires 18x7-8 x4",
+      "quantity": 4,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.34,
+      "needs_review": true,
+      "flags": [
+        "customer_unresolved",
+        "low_match_confidence",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.34 is below 0.80."
+    },
+    {
+      "line": 3,
+      "as_written": "o-rings 214 buna",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.8,
+      "needs_review": true,
+      "flags": [
+        "customer_unresolved",
+        "low_match_confidence",
+        "quantity_unparsed",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.80 is below 0.80."
+    }
+  ],
+  "non_item_rows": [
+    "From: dispatch@granitepeakmining.example",
+    "To: quotes@ridgelinesupply.example",
+    "Date: Thu, 8 Oct 2026 05:51:47 -0600",
+    "Subject: need asap",
+    "need asap for the crusher rebuild:",
+    "bolts 3/8 x 1 1/2 gr5 - 300 (we usually get boxes)",
+    "nitrile gloves L - a few boxes",
+    "NF-778812 x 4 (whatever you have thats equivalent)",
+    "sent from my phone",
+    "Customer could not be identified uniquely; manual customer review is required."
+  ]
+}

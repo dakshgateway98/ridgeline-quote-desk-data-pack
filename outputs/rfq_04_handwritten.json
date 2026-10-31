@@ -1,0 +1,26 @@
+{
+  "rfq_id": "rfq_04_handwritten",
+  "customer_id": null,
+  "customer_name": null,
+  "lines": [
+    {
+      "line": 1,
+      "as_written": "Ridgeline - ple quote Kowalchi Machine - Ed 6205 2RS bree x 30 AQ8 belts xB #40 chain 10ft x 2 bx 3/8 puch-in elbows x 50 greace - the ucval the! need by Thure",
+      "quantity": 10,
+      "unit": "FT",
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.25,
+      "needs_review": true,
+      "flags": [
+        "customer_unresolved",
+        "low_match_confidence",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.25 is below 0.80.; Document OCR confidence: 0.75"
+    }
+  ],
+  "non_item_rows": [
+    "Customer could not be identified uniquely; manual customer review is required."
+  ]
+}

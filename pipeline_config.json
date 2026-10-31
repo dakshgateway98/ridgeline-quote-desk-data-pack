@@ -1,0 +1,78 @@
+{
+  "products_file": "products.csv",
+  "cross_reference_file": "cross_reference.csv",
+  "customers_file": "customers.csv",
+  "input_directory": "rfqs",
+  "output_directory": "outputs",
+  "review_threshold": 0.8,
+  "evaluation": {
+    "thresholds": [0.5, 0.65, 0.8, 0.9, 0.95],
+    "target_auto_precision": 0.95
+  },
+  "matching": {
+    "llm": {
+      "enabled": false,
+      "endpoint_url": "",
+      "model": null,
+      "api_key_env": "LLM_API_KEY",
+      "minimum_confidence": 0.75,
+      "candidate_limit": 8,
+      "timeout_seconds": 20
+    },
+    "evidence_scores": {
+      "exact_part": 1.0,
+      "cross_reference": 0.98,
+      "exact_description": 0.96
+    },
+    "token_coverage_weight": 0.65,
+    "token_precision_weight": 0.35,
+    "sequence_weight": 0.1,
+    "attribute_weight_multiplier": 1.35,
+    "minimum_description_score": 0.8,
+    "ambiguous_score_margin": 0.06,
+    "common_tokens": ["a", "an", "and", "for", "in", "of", "the", "to", "with", "each", "item", "part", "product", "please", "quote"],
+    "attributes": ["size", "model", "material", "voltage", "grade", "micron", "diameter", "length", "width", "height", "pressure"]
+  },
+  "processing_limits": {
+    "max_pdf_pages": 40,
+    "pdf_timeout_seconds": 180,
+    "office_timeout_seconds": 120,
+    "max_attachment_bytes": 20971520,
+    "max_attachment_depth": 2,
+    "continuation_max_tokens": 8
+  },
+  "ocr": {
+    "minimum_pdf_text_chars": 30,
+    "minimum_pdf_text_words": 5,
+    "review_confidence_threshold": 0.65,
+    "timeout_seconds": 90,
+    "pdf_dpi": 250,
+    "language": "eng"
+  },
+  "attachment_extensions": [
+    ".pdf", ".xlsx", ".xls", ".docx", ".doc", ".rtf", ".png", ".jpg", ".jpeg",
+    ".tif", ".tiff", ".bmp", ".webp", ".gif", ".csv", ".tsv", ".txt", ".html",
+    ".htm", ".json", ".eml", ".msg"
+  ],
+  "unit_aliases": {
+    "each": "EA",
+    "ea": "EA",
+    "pc": "EA",
+    "pcs": "EA",
+    "piece": "EA",
+    "pieces": "EA",
+    "box": "BX",
+    "boxes": "BX",
+    "case": "CS",
+    "cases": "CS",
+    "pair": "PR",
+    "pairs": "PR"
+  },
+  "supported_units": ["EA", "BX", "CS", "PR"],
+  "customer_fields": {
+    "id": "customer_id",
+    "name": ["name", "customer_name"],
+    "email": ["email", "email_address", "contact_email", "primary_email"],
+    "domain": ["email_domain", "domain", "customer_domain"]
+  }
+}

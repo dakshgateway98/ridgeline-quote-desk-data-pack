@@ -1,0 +1,224 @@
+{
+  "rfq_id": "rfq_02_clearwater",
+  "customer_id": "C1007",
+  "customer_name": "Clearwater Bottling Co.",
+  "lines": [
+    {
+      "line": 1,
+      "as_written": "2210 Industrial Pkwy, Springfield, MO 65803",
+      "quantity": 2210,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.44,
+      "needs_review": true,
+      "flags": [
+        "low_match_confidence",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.44 is below 0.80."
+    },
+    {
+      "line": 2,
+      "as_written": "APX-BB-6206ZZ",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": "RL178907",
+      "match_method": "cross_reference",
+      "confidence": 0.98,
+      "needs_review": true,
+      "flags": [
+        "quantity_unparsed"
+      ],
+      "note": "Exact cross-reference evidence. The score is an evidence rating, not a calibrated probability."
+    },
+    {
+      "line": 3,
+      "as_written": "Ball bearing 6206 ZZ shielded",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": "RL178907",
+      "match_method": "description",
+      "confidence": 0.82,
+      "needs_review": true,
+      "flags": [
+        "quantity_unparsed"
+      ],
+      "note": "Weighted token/fuzzy evidence score: 0.82; this is not a calibrated probability."
+    },
+    {
+      "line": 4,
+      "as_written": "APX-VB-B55",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": "RL125203",
+      "match_method": "cross_reference",
+      "confidence": 0.98,
+      "needs_review": true,
+      "flags": [
+        "quantity_unparsed"
+      ],
+      "note": "Exact cross-reference evidence. The score is an evidence rating, not a calibrated probability."
+    },
+    {
+      "line": 5,
+      "as_written": "V-belt B55",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.73,
+      "needs_review": true,
+      "flags": [
+        "low_match_confidence",
+        "quantity_unparsed",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.73 is below 0.80."
+    },
+    {
+      "line": 6,
+      "as_written": "APX-HF-JIC08-90",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": "RL120374",
+      "match_method": "cross_reference",
+      "confidence": 0.98,
+      "needs_review": true,
+      "flags": [
+        "discontinued_replaced",
+        "quantity_unparsed"
+      ],
+      "note": "Original product is discontinued; its listed replacement is suggested for human review."
+    },
+    {
+      "line": 7,
+      "as_written": "JIC -08 x 1/2 NPT 90 elbow",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.72,
+      "needs_review": true,
+      "flags": [
+        "low_match_confidence",
+        "quantity_unparsed",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.72 is below 0.80."
+    },
+    {
+      "line": 8,
+      "as_written": "APX-FL-HE10",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.03,
+      "needs_review": true,
+      "flags": [
+        "low_match_confidence",
+        "quantity_unparsed",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.03 is below 0.80."
+    },
+    {
+      "line": 9,
+      "as_written": "Hyd. return element 10 micron cellulose",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": "RL194646",
+      "match_method": "description",
+      "confidence": 0.8,
+      "needs_review": true,
+      "flags": [
+        "quantity_unparsed"
+      ],
+      "note": "Weighted token/fuzzy evidence score: 0.80; this is not a calibrated probability."
+    },
+    {
+      "line": 10,
+      "as_written": "APX-GL-A4-L",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": "RL131850",
+      "match_method": "cross_reference",
+      "confidence": 0.98,
+      "needs_review": true,
+      "flags": [
+        "quantity_unparsed"
+      ],
+      "note": "Exact cross-reference evidence. The score is an evidence rating, not a calibrated probability."
+    },
+    {
+      "line": 11,
+      "as_written": "Cut resistant glove A4, Large",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.74,
+      "needs_review": true,
+      "flags": [
+        "low_match_confidence",
+        "quantity_unparsed",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.74 is below 0.80."
+    },
+    {
+      "line": 12,
+      "as_written": "APX-BV-SS100",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": "RL185180",
+      "match_method": "cross_reference",
+      "confidence": 0.98,
+      "needs_review": true,
+      "flags": [
+        "quantity_unparsed"
+      ],
+      "note": "Exact cross-reference evidence. The score is an evidence rating, not a calibrated probability."
+    },
+    {
+      "line": 13,
+      "as_written": "1\" ball valve, 316 SS, full port",
+      "quantity": null,
+      "unit": null,
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.79,
+      "needs_review": true,
+      "flags": [
+        "low_match_confidence",
+        "quantity_unparsed",
+        "unmatched"
+      ],
+      "note": "Best description evidence score 0.79 is below 0.80."
+    }
+  ],
+  "non_item_rows": [
+    "Clearwater Bottling Co.",
+    "REQUEST FOR QUOTATION   RFQ #: CB-RFQ-2026-0418   Date: 10/06/2026   Reply by: 10/09/2026",
+    "To: Ridgeline Industrial Supply. Part numbers below are from our current supplier (Apex Industrial).",
+    "Equivalent items acceptable; please note any substitutions.",
+    "Line",
+    "Supplier Part #",
+    "Description",
+    "Qty",
+    "UOM",
+    "1",
+    "12",
+    "EA",
+    "2",
+    "4",
+    "3",
+    "25",
+    "6",
+    "5",
+    "PR",
+    "Ship to: Plant 1 receiving dock. Terms per contract. Buyer: Karen Ellis,",
+    "kellis@clearwaterbottling.example"
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "rfq_id": "rfq_03_tricounty",
+  "customer_id": "C1010",
+  "customer_name": "Tri-County Water District",
+  "lines": [
+    {
+      "line": 1,
+      "as_written": "NF-220418",
+      "quantity": 15,
+      "unit": "EA",
+      "ridgeline_part_number": "RL134741",
+      "match_method": "cross_reference",
+      "confidence": 0.98,
+      "needs_review": true,
+      "flags": [
+        "conflicting_duplicate_columns"
+      ],
+      "note": "Worksheet/table: rfq_03_tricounty.xlsx / RFQ; Exact cross-reference evidence. The score is an evidence rating, not a calibrated probability."
+    },
+    {
+      "line": 2,
+      "as_written": "NF-220420",
+      "quantity": 10,
+      "unit": "EA",
+      "ridgeline_part_number": "RL179507",
+      "match_method": "cross_reference",
+      "confidence": 0.98,
+      "needs_review": true,
+      "flags": [
+        "conflicting_duplicate_columns"
+      ],
+      "note": "Worksheet/table: rfq_03_tricounty.xlsx / RFQ; Exact cross-reference evidence. The score is an evidence rating, not a calibrated probability."
+    },
+    {
+      "line": 3,
+      "as_written": "same as above but 1/2\"",
+      "quantity": 10,
+      "unit": "EA",
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.0,
+      "needs_review": true,
+      "flags": [
+        "relative_reference_needs_context",
+        "unmatched"
+      ],
+      "note": "Worksheet/table: rfq_03_tricounty.xlsx / RFQ; Customer note: same spec as line 2"
+    },
+    {
+      "line": 4,
+      "as_written": "NF-118203",
+      "quantity": 40,
+      "unit": "EA",
+      "ridgeline_part_number": "RL118373",
+      "match_method": "cross_reference",
+      "confidence": 0.98,
+      "needs_review": true,
+      "flags": [
+        "conflicting_duplicate_columns"
+      ],
+      "note": "Worksheet/table: rfq_03_tricounty.xlsx / RFQ; Exact cross-reference evidence. The score is an evidence rating, not a calibrated probability."
+    },
+    {
+      "line": 5,
+      "as_written": "NF-118204",
+      "quantity": 40,
+      "unit": "EA",
+      "ridgeline_part_number": "RL124050",
+      "match_method": "cross_reference",
+      "confidence": 0.98,
+      "needs_review": true,
+      "flags": [
+        "conflicting_duplicate_columns",
+        "cross_reference_note"
+      ],
+      "note": "Worksheet/table: rfq_03_tricounty.xlsx / RFQ; Customer note: 1/16 thk; Cross-reference note: check thickness"
+    },
+    {
+      "line": 6,
+      "as_written": "NF-310077",
+      "quantity": 6,
+      "unit": "PAIL",
+      "ridgeline_part_number": "RL107944",
+      "match_method": "cross_reference",
+      "confidence": 0.98,
+      "needs_review": true,
+      "flags": [
+        "conflicting_duplicate_columns",
+        "unit_mismatch",
+        "unit_not_in_catalog"
+      ],
+      "note": "Worksheet/table: rfq_03_tricounty.xlsx / RFQ; Exact cross-reference evidence. The score is an evidence rating, not a calibrated probability."
+    },
+    {
+      "line": 7,
+      "as_written": "NF-505512",
+      "quantity": 4,
+      "unit": "CS",
+      "ridgeline_part_number": "RL149009",
+      "match_method": "cross_reference",
+      "confidence": 0.98,
+      "needs_review": true,
+      "flags": [
+        "conflicting_duplicate_columns"
+      ],
+      "note": "Worksheet/table: rfq_03_tricounty.xlsx / RFQ; Customer note: cs of 12; Exact cross-reference evidence. The score is an evidence rating, not a calibrated probability."
+    },
+    {
+      "line": 8,
+      "as_written": "NF-999120",
+      "quantity": 2,
+      "unit": "EA",
+      "ridgeline_part_number": null,
+      "match_method": null,
+      "confidence": 0.02,
+      "needs_review": true,
+      "flags": [
+        "conflicting_duplicate_columns",
+        "low_match_confidence",
+        "unmatched"
+      ],
+      "note": "Worksheet/table: rfq_03_tricounty.xlsx / RFQ; Customer note: if available; Best description evidence score 0.02 is below 0.80."
+    }
+  ],
+  "non_item_rows": [
+    "rfq_03_tricounty.xlsx / RFQ: Tri-County Water District - Request for Quotation",
+    "rfq_03_tricounty.xlsx / RFQ: Bid # TCWD-26-117    Responses due 10/20/2026    Contact: R. Haines, (217) 555-0190",
+    "rfq_03_tricounty.xlsx / RFQ: Item # | Desc. | Qty | UOM | Notes",
+    "rfq_03_tricounty.xlsx / RFQ: Deliver to Plant 2, 4100 County Rd 9. Dock closes 2pm."
+  ]
+}

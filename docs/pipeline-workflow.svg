@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title description">
+  <title id="title">RFQ pipeline workflow</title>
+  <desc id="description">Customer RFQ files pass through format readers, extraction, customer lookup, matching, validation and output. Evaluation compares outputs with answer keys and uncertain lines go to human review.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,5 L0,10 z" fill="#526277"/></marker>
+    <style>
+      .box { fill:#f3f7fc; stroke:#4272a5; stroke-width:2; rx:14; }
+      .side { fill:#fff8e8; stroke:#bd8425; stroke-width:2; rx:14; }
+      .main { fill:#eaf4ff; stroke:#3169a3; stroke-width:2.5; rx:14; }
+      .title { font:700 24px system-ui,sans-serif; fill:#19324d; }
+      .label { font:600 17px system-ui,sans-serif; fill:#24364b; text-anchor:middle; }
+      .small { font:14px system-ui,sans-serif; fill:#526277; text-anchor:middle; }
+      .edge { stroke:#526277; stroke-width:2.5; fill:none; marker-end:url(#arrow); }
+      .edge-label { font:13px system-ui,sans-serif; fill:#526277; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#ffffff"/>
+  <text x="600" y="48" text-anchor="middle" class="title">Ridgeline RFQ pipeline</text>
+  <rect x="430" y="82" width="340" height="68" class="box"/><text x="600" y="111" class="label">1. RFQ files</text><text x="600" y="134" class="small">Email · PDF · Excel · Word · image · text</text>
+  <path d="M600 150 V185" class="edge"/>
+  <rect x="430" y="190" width="340" height="68" class="main"/><text x="600" y="219" class="label">2. Format readers</text><text x="600" y="242" class="small">Text extraction first; OCR fallback where available</text>
+  <path d="M600 258 V293" class="edge"/>
+  <rect x="430" y="298" width="340" height="68" class="main"/><text x="600" y="327" class="label">3. Extract line items</text><text x="600" y="350" class="small">Descriptions · quantities · units · notes · attachments</text>
+  <path d="M600 366 V401" class="edge"/>
+  <rect x="430" y="406" width="340" height="68" class="box"/><text x="600" y="435" class="label">4. Identify customer</text><text x="600" y="458" class="small">Contact evidence, identifier, then name</text>
+  <path d="M600 474 V509" class="edge"/>
+  <rect x="430" y="514" width="340" height="68" class="main"/><text x="600" y="543" class="label">5. Match products</text><text x="600" y="566" class="small">Exact part → cross-reference → description</text>
+  <path d="M600 582 V617" class="edge"/>
+  <rect x="430" y="622" width="340" height="68" class="main"/><text x="600" y="651" class="label">6. Validate and save draft</text><text x="600" y="674" class="small">JSON output with confidence, flags, and review status</text>
+  <path d="M770 656 H865" class="edge"/>
+  <rect x="870" y="622" width="270" height="68" class="side"/><text x="1005" y="651" class="label">Human review</text><text x="1005" y="674" class="small">Unclear or unreadable items</text>
+  <path d="M770 218 H925 V178" class="edge"/>
+  <rect x="850" y="82" width="300" height="84" class="side"/><text x="1000" y="113" class="label">Evaluation</text><text x="1000" y="137" class="small">Compare saved drafts to answer keys</text><text x="1000" y="156" class="small">Measure accuracy, precision, and recall</text>
+</svg>

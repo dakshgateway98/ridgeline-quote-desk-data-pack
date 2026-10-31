@@ -1,0 +1,56 @@
+{
+  "threshold": 0.8,
+  "extraction_accuracy": 0.2105,
+  "match_precision": 0.6364,
+  "match_recall": 0.4118,
+  "additional_metrics": {
+    "extraction_exact_line_count": "4/19",
+    "correct_matches": "7/17",
+    "customer_identification_rate": 1.0,
+    "customer_identification_count": "3/3",
+    "review_rate": 0.9474,
+    "false_positive_matches": 4,
+    "false_negative_matches": 10,
+    "threshold_sweep": [
+      {
+        "threshold": 0.5,
+        "auto_accepted": 1,
+        "precision": 1.0,
+        "recall": 0.0588
+      },
+      {
+        "threshold": 0.65,
+        "auto_accepted": 1,
+        "precision": 1.0,
+        "recall": 0.0588
+      },
+      {
+        "threshold": 0.8,
+        "auto_accepted": 1,
+        "precision": 1.0,
+        "recall": 0.0588
+      },
+      {
+        "threshold": 0.9,
+        "auto_accepted": 1,
+        "precision": 1.0,
+        "recall": 0.0588
+      },
+      {
+        "threshold": 0.95,
+        "auto_accepted": 1,
+        "precision": 1.0,
+        "recall": 0.0588
+      }
+    ],
+    "recommended_threshold": {
+      "threshold": 0.5,
+      "auto_accepted": 1,
+      "precision": 1.0,
+      "recall": 0.0588
+    },
+    "target_auto_precision": 0.95,
+    "answer_key_rfqs": 3,
+    "notes": "Metrics use only answer-key RFQs. Confidence values are evidence scores, not calibrated probabilities. Threshold results are exploratory on a small sample; use a larger held-out set before production."
+  }
+}
